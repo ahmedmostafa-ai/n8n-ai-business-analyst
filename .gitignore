@@ -1,0 +1,12 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local files
+.DS_Store
+*.log
+
+# Editor settings
+.vscode/
+.idea/
