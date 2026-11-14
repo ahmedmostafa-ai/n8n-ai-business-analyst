@@ -1,0 +1,160 @@
+{
+  "name": "Form Submission",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://YOUR_N8N_HOST/webhook/business-analysis",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Business Name",
+              "value": "={{ $json['Business Name'] }}"
+            },
+            {
+              "name": "Business Type",
+              "value": "={{ $json['Business Type'] }}"
+            },
+            {
+              "name": "Business Description",
+              "value": "={{ $json['Business Description'] }}"
+            },
+            {
+              "name": "Target Audience",
+              "value": "={{ $json['Target Audience'] }}"
+            },
+            {
+              "name": "Main Goal",
+              "value": "={{ $json['Main Goal'] }}"
+            },
+            {
+              "name": "Current Challenges",
+              "value": "={{ $json['Current Challenges'] }}"
+            },
+            {
+              "name": "Marketing Channels",
+              "value": "={{ $json['Marketing Channels'] }}"
+            },
+            {
+              "name": "Monthly Leads",
+              "value": "={{ $json['Monthly Leads'] }}"
+            },
+            {
+              "name": "Monthly Registrations",
+              "value": "={{ $json['Monthly Registrations'] }}"
+            },
+            {
+              "name": "Average Course Price",
+              "value": "={{ $json['Average Course Price'] }}"
+            },
+            {
+              "name": "Current Process",
+              "value": "={{ $json['Current Process'] }}"
+            },
+            {
+              "name": "Expected Outcome",
+              "value": "={{ $json['Expected Outcome'] }}"
+            },
+            {
+              "name": "Additional Information",
+              "value": "={{ $json['Additional Information'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        240,
+        208
+      ],
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "formTitle": "AI-Powered Business Analysis",
+        "formDescription": "Tell us about your business, including your goals, challenges, target audience, and current performance.\n\nOur AI will analyze your information and generate a personalized business report with key insights, improvement opportunities, and actionable recommendations.\n\nAfter the analysis, you'll be able to chat with our AI assistant to explore your results and ask follow-up questions.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Business Name"
+            },
+            {
+              "fieldLabel": "Business Type"
+            },
+            {
+              "fieldLabel": "Business Description",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Target Audience",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Main Goal",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Current Challenges",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Marketing Channels"
+            },
+            {
+              "fieldLabel": "Monthly Leads",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Monthly Registrations",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Average Course Price",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Current Process",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Expected Outcome",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Additional Information",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -48,
+        208
+      ],
+      "name": "On form submission1"
+    }
+  ],
+  "connections": {
+    "On form submission1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  }
+}
